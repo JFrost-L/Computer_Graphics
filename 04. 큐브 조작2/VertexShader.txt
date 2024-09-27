@@ -1,0 +1,16 @@
+#version 400 core
+
+//vertexShader는 normalized 좌표계에서 좌표를 정하는 것
+
+in vec3 vtxPosition;
+in vec3 a_Color;
+out vec3 v_Color;
+uniform mat4 projection;
+uniform mat4 view;
+uniform mat4 translation;
+
+void main()
+{	
+    gl_Position = projection * view  * translation*vec4(vtxPosition, 1.0);
+	v_Color = a_Color;
+}
